@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio ของ ธีรภัทร อินทวงศ์ - Information and Communication Technology" />
+  <title>Teerapat Intawong | Portfolio</title>
+  <style>
+    :root{
+      --bg:#06111f;
+      --bg2:#0a1830;
+      --card:rgba(12,30,55,.72);
+      --line:rgba(93,177,255,.20);
+      --text:#edf7ff;
+      --muted:#9bb5ca;
+      --blue:#35a7ff;
+      --cyan:#55e6ff;
+      --blue2:#176bff;
+      --shadow:0 24px 80px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%,rgba(23,107,255,.24),transparent 30%),
+        radial-gradient(circle at 85% 15%,rgba(85,230,255,.14),transparent 25%),
+        linear-gradient(135deg,var(--bg),var(--bg2));
+      color:var(--text);line-height:1.65;overflow-x:hidden;
+    }
+    body:before{
+      content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;
+      background-image:linear-gradient(rgba(100,190,255,.08) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(100,190,255,.08) 1px,transparent 1px);
+      background-size:42px 42px;
+      mask-image:linear-gradient(to bottom,black,transparent 85%);
+    }
+    a{color:inherit;text-decoration:none}
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:20;
+      backdrop-filter:blur(18px);background:rgba(4,13,25,.66);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{max-width:1120px;margin:auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:.04em}
+    .brand span{color:var(--cyan)}
+    .links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
+    .links a:hover{color:#fff}
+    .hero{max-width:1120px;margin:auto;padding:150px 24px 90px;display:grid;grid-template-columns:1.35fr .65fr;gap:50px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.13em;margin-bottom:18px}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px var(--cyan)}
+    h1{font-size:clamp(42px,7vw,78px);line-height:1.02;letter-spacing:-.045em;margin-bottom:24px}
+    .gradient{background:linear-gradient(90deg,#fff,#76cfff 45%,#55e6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{max-width:680px;color:var(--muted);font-size:18px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:12px 18px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-weight:700;transition:.2s}
+    .btn.primary{background:linear-gradient(135deg,var(--blue2),var(--blue));border-color:transparent;box-shadow:0 12px 30px rgba(23,107,255,.28)}
+    .btn:hover{transform:translateY(-2px)}
+    .profile{
+      position:relative;min-height:360px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,rgba(28,85,150,.25),rgba(7,20,38,.7));
+      box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;overflow:hidden
+    }
+    .profile:before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(53,167,255,.2);filter:blur(45px)}
+    .orb{width:175px;height:175px;border-radius:50%;display:grid;place-items:center;font-size:54px;font-weight:900;color:#fff;
+      background:radial-gradient(circle at 30% 25%,#8ce8ff,#1674ff 55%,#081e46);box-shadow:0 0 70px rgba(53,167,255,.45);border:1px solid rgba(255,255,255,.25);z-index:1}
+    section{max-width:1120px;margin:auto;padding:80px 24px}
+    .section-title{font-size:34px;letter-spacing:-.03em;margin-bottom:12px}
+    .section-sub{color:var(--muted);margin-bottom:30px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+    .card h3{margin-bottom:8px;font-size:20px}
+    .card p,.card li{color:var(--muted)}
+    .info{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .item{padding:18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025)}
+    .label{font-size:12px;color:var(--cyan);font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .value{margin-top:4px;font-weight:650}
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{padding:9px 13px;border:1px solid rgba(85,230,255,.25);background:rgba(53,167,255,.08);border-radius:999px;color:#dff7ff;font-size:14px}
+    .timeline{display:grid;gap:16px}
+    .timeline .card{position:relative}
+    .date{color:var(--cyan);font-size:13px;font-weight:800;margin-bottom:5px}
+    .contact{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+    footer{text-align:center;color:#6f8ba4;border-top:1px solid var(--line);padding:28px 20px}
+    @media(max-width:760px){
+      .links{display:none}.hero{grid-template-columns:1fr;padding-top:125px}
+      .profile{min-height:270px}.grid,.info{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}section{padding:60px 20px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">TEERAPAT<span>.DEV</span></a>
+      <div class="links">
+        <a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> ICT Student · Future Software Engineer</div>
+        <h1>Hi, I'm <span class="gradient">Teerapat.</span></h1>
+        <p>นักศึกษาด้าน Information and Communication Technology ที่สนใจการพัฒนา Web Application, Software และเทคโนโลยีสมัยใหม่ พร้อมเรียนรู้และสร้างผลงานที่แก้ปัญหาได้จริง</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact">Contact Me</a>
+          <a class="btn" href="#education">View Profile</a>
+        </div>
+      </div>
+      <div class="profile" aria-label="Teerapat profile">
+        <div class="orb">TI</div>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-sub">ข้อมูลโปรไฟล์สำหรับการสมัครงานและฝึกงานด้านเทคโนโลยี</p>
+      <div class="info">
+        <div class="item"><div class="label">Full Name</div><div class="value">นาย ธีรภัทร อินทวงศ์</div></div>
+        <div class="item"><div class="label">Birth Date</div><div class="value">26 มีนาคม พ.ศ. 2551</div></div>
+        <div class="item"><div class="label">Current Status</div><div class="value">University Student</div></div>
+        <div class="item"><div class="label">Email</div><div class="value">dinoarmx2@gmail.com</div></div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <p class="section-sub">เส้นทางการศึกษาและพื้นฐานด้านเทคโนโลยี</p>
+      <div class="timeline">
+        <article class="card">
+          <div class="date">CURRENT · UNIVERSITY</div>
+          <h3>มหาวิทยาลัยศรีปทุม</h3>
+          <p>คณะ Information and Communication Technology (ICT)</p>
+        </article>
+        <article class="card">
+          <div class="date">HIGH SCHOOL · GPA 3.02</div>
+          <h3>โรงเรียนเตรียมอุดมศึกษาพัฒนาการรัชดา</h3>
+          <p>สำเร็จการศึกษาระดับมัธยมศึกษาตอนปลาย · เกรดเฉลี่ย 3.02</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Technical Focus</h2>
+      <p class="section-sub">ทักษะที่เหมาะสำหรับการต่อยอดสู่สาย Software / Web Development</p>
+      <div class="card">
+        <div class="skills">
+          <span class="skill">JavaScript</span>
+          <span class="skill">Python</span>
+          <span class="skill">HTML5</span>
+          <span class="skill">CSS3</span>
+          <span class="skill">Web Application</span>
+          <span class="skill">Problem Solving</span>
+          <span class="skill">Responsive Design</span>
+          <span class="skill">Git / GitHub</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Career Objective</h2>
+      <div class="card">
+        <h3>Build. Learn. Solve.</h3>
+        <p>มุ่งพัฒนาทักษะด้าน Software Engineering และ Web Application ผ่านการทำโปรเจกต์จริง การทำงานร่วมกับทีม และการเรียนรู้เทคโนโลยีใหม่อย่างต่อเนื่อง โดยต้องการสร้างผลงานที่มีคุณภาพและสร้างประโยชน์ให้กับผู้ใช้งาน</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="card contact">
+        <div>
+          <div class="label">Let's Connect</div>
+          <h2 class="section-title" style="margin-top:5px">Ready to build something?</h2>
+          <p style="color:var(--muted)">ติดต่อเพื่อพูดคุยเรื่องฝึกงาน โปรเจกต์ หรือโอกาสด้านเทคโนโลยี</p>
+        </div>
+        <a class="btn primary" href="mailto:dinoarmx2@gmail.com">Email Me</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Teerapat Intawong · Portfolio</footer>
+</body>
+</html>
